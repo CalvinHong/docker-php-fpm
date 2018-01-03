@@ -21,17 +21,6 @@ RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/$P
     && mv phpredis-$PHPREDIS_VERSION /usr/src/php/ext/redis \
     && docker-php-ext-install redis \
     && rm -rf /usr/src/php
-    
-RUN cd /usr/src/php/ext/mysqli \
-    && docker-php-ext-configure mysqli --with-mysqli=mysqlnd \
-    && docker-php-ext-install mysqli \
-    && docker-php-ext-install pdo_mysql
-    
-#composer神器
-RUN curl -sS https://getcomposer.org/installer \
-  | php -- --install-dir=/usr/local/bin --filename=composer    
-
-RUN composer config -g repo.packagist composer https://packagist.phpcomposer.com
   
 CMD ["php-fpm"]
 
