@@ -1,5 +1,4 @@
 FROM debian:jessie
-MAINTAINER https://github.com/surenkid/
 
 # persistent / runtime deps
 RUN apt-get update && apt-get install -y --no-install-recommends \
